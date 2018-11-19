@@ -17,10 +17,17 @@ namespace FindNumberAndSquareLINQ
                          let sqrNo = number * number
                          where number > 5
                          select new { number, sqrNo };
+            var queryLambda = myList.Where(number => number > 5).Select(number => new { number, sqrNo = number * number });
 
+            Console.WriteLine("First chech using LINQ query method");
             foreach (var i in query1)
             {
                 Console.WriteLine(i);
+            }
+            Console.WriteLine("Additional check using Lambda method");
+            foreach (var p in queryLambda)
+            {
+                Console.WriteLine(p);
             }
 
             Console.ReadLine();
